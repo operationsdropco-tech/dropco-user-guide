@@ -5,51 +5,355 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dropco Dropshipper User Guide</title>
 <style>
-:root{--green:#003f32;--green2:#007a4d;--soft:#f3faf6;--gold:#f6b83f;}
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f4f7f5;color:#17211d;line-height:1.6}
-.hero{background:linear-gradient(135deg,#002f27,#007a4d);color:#fff;padding:42px 20px;text-align:center}
-.hero h1{font-size:40px;margin:0 0 8px}
-.hero p{margin:4px 0}
-.contact{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:20px}
-.contact div{background:#fff;color:var(--green);padding:10px 18px;border-radius:30px;font-weight:700}
-.wrap{max-width:1180px;margin:auto;padding:24px}
-.intro{background:#fff;border-radius:20px;padding:24px;margin-top:-28px;box-shadow:0 8px 26px rgba(0,0,0,.10)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(430px,1fr));gap:20px;margin-top:24px}
-.chapter{background:#fff;border:1px solid #dce8e2;border-radius:20px;padding:20px;box-shadow:0 6px 18px rgba(0,0,0,.05)}
-.chapter-head{display:flex;align-items:center;gap:10px}
-.chapter-head span{background:var(--green2);color:#fff;border-radius:10px;width:38px;height:38px;display:inline-flex;align-items:center;justify-content:center;font-size:21px;font-weight:800;flex:0 0 auto}
-h2{color:var(--green);font-size:22px;margin:0}
-.si{font-weight:600;color:#305247}
-.chapter img{width:100%;border-radius:14px;border:1px solid #dbe6e0;margin-top:12px;display:block}
-.note{background:#fff7e6;border-left:5px solid var(--gold);border-radius:12px;padding:14px;margin-top:18px}
-footer{background:var(--green);color:#fff;text-align:center;padding:24px;margin-top:30px}
-@media(max-width:600px){.grid{grid-template-columns:1fr}.hero h1{font-size:30px}}
+:root {
+  --green:#003f32;
+  --green2:#007a4d;
+  --green3:#e7f5ef;
+  --gold:#f6b83f;
+  --text:#14231e;
+  --muted:#506b61;
+  --bg:#f5f8f6;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  margin:0;
+  font-family: Arial, Helvetica, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.65;
+}
+.hero {
+  background:
+    radial-gradient(circle at 10% 10%, rgba(246,184,63,.22), transparent 26%),
+    linear-gradient(135deg, #002e27 0%, #005f49 55%, #00815a 100%);
+  color:white;
+  padding:44px 20px 52px;
+  text-align:center;
+}
+.hero h1 {
+  margin:0;
+  font-size:42px;
+  letter-spacing:.4px;
+}
+.hero p {
+  margin:7px 0;
+  font-size:18px;
+}
+.badges {
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-top:22px;
+}
+.badges span {
+  background:#fff;
+  color:var(--green);
+  border-radius:30px;
+  padding:10px 17px;
+  font-weight:800;
+  box-shadow:0 7px 18px rgba(0,0,0,.12);
+}
+.wrap {
+  max-width:1180px;
+  margin:auto;
+  padding:24px;
+}
+.intro {
+  background:#fff;
+  border-radius:22px;
+  padding:26px;
+  margin-top:-42px;
+  box-shadow:0 12px 30px rgba(0,0,0,.12);
+  border:1px solid #dce8e2;
+}
+h2 {
+  color:var(--green);
+  margin:0 0 10px;
+  font-size:25px;
+}
+h3 {
+  color:var(--green);
+  margin:18px 0 8px;
+}
+.si {
+  font-weight:600;
+  color:#31584c;
+}
+.toc {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:10px;
+  margin-top:18px;
+}
+.toc a {
+  display:block;
+  text-decoration:none;
+  background:var(--green3);
+  color:var(--green);
+  border-radius:12px;
+  padding:10px 12px;
+  font-weight:800;
+  border:1px solid #cfe6da;
+}
+.chapter {
+  background:#fff;
+  border:1px solid #dce8e2;
+  border-radius:22px;
+  padding:24px;
+  margin-top:24px;
+  box-shadow:0 7px 20px rgba(0,0,0,.055);
+}
+.chapter-head {
+  display:flex;
+  gap:12px;
+  align-items:center;
+  margin-bottom:10px;
+}
+.num {
+  width:42px;
+  height:42px;
+  background:var(--green2);
+  color:white;
+  border-radius:12px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:900;
+  font-size:22px;
+  flex:0 0 auto;
+}
+.grid-2 {
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:18px;
+  align-items:start;
+}
+.screen {
+  width:100%;
+  display:block;
+  border-radius:16px;
+  margin-top:12px;
+  border:1px solid #d6e4dd;
+  box-shadow:0 6px 18px rgba(0,0,0,.07);
+}
+.tip {
+  background:#fff7e5;
+  border-left:6px solid var(--gold);
+  padding:13px 15px;
+  border-radius:12px;
+  margin-top:14px;
+}
+.flow {
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:12px;
+}
+.flow span {
+  background:var(--green3);
+  color:var(--green);
+  border:1px solid #cae4d6;
+  border-radius:30px;
+  padding:8px 12px;
+  font-weight:800;
+}
+table {
+  width:100%;
+  border-collapse:collapse;
+  margin-top:12px;
+  font-size:15px;
+}
+th,td {
+  border:1px solid #dce8e2;
+  padding:10px;
+  text-align:left;
+}
+th {
+  background:var(--green3);
+  color:var(--green);
+}
+.footer {
+  background:var(--green);
+  color:white;
+  text-align:center;
+  padding:26px 18px;
+  margin-top:35px;
+}
+.footer strong {
+  font-size:20px;
+}
+.notice {
+  color:var(--muted);
+  font-size:14px;
+  margin-top:10px;
+}
+@media(max-width:800px){
+  .hero h1{font-size:31px;}
+  .grid-2{grid-template-columns:1fr;}
+  .wrap{padding:16px;}
+  .chapter{padding:18px;}
+}
 </style>
 </head>
 <body>
 <header class="hero">
   <h1>DROPCO Dropshipper User Guide</h1>
-  <p>Your complete guide to manage products, leads, orders, shipments and earnings</p>
-  <p class="si" style="color:white">Dropco Dropshipping System පරිශීලක මාර්ගෝපදේශය</p>
-  <div class="contact">
-    <div>Hotline: 0777544646</div>
-    <div>WhatsApp: 0777544646</div>
-    <div>Website: www.dropco.lk</div>
+  <p>Your complete guide to manage products, leads, orders, shipments and earnings.</p>
+  <p class="si" style="color:white;">Dropco Dropshipping System පරිශීලක මාර්ගෝපදේශය</p>
+  <div class="badges">
+    <span>Hotline: 0777544646</span>
+    <span>WhatsApp: 0777544646</span>
+    <span>Website: www.dropco.lk</span>
   </div>
 </header>
+
 <main class="wrap">
   <section class="intro">
     <h2>Welcome / සාදරයෙන් පිළිගනිමු</h2>
-    <p>This guide explains how to use the Dropco reseller portal step by step. Sensitive data in screenshots has been blurred while keeping the interface visible for training.</p>
-    <p class="si">මෙම guide එකෙන් Dropco reseller portal එක step by step භාවිතා කරන ආකාරය පෙන්වයි. Training සඳහා interface එක පෙනෙන ලෙස තබා, sensitive data blur කර ඇත.</p>
-    <div class="note">Recommended: Share this page link with new dropshippers after registration.</div>
-  </section>
-  <section class="grid">
+    <p>This guide explains how to use the Dropco dropshipper portal step by step. It covers the dashboard, products, orders, leads, selling prices, team users, reports, commission settlement and account settings.</p>
+    <p class="si">මෙම guide එක මඟින් Dropco dropshipper portal එක step by step භාවිතා කරන ආකාරය පෙන්වයි. Dashboard, products, orders, leads, selling prices, team users, reports, commission settlement සහ account settings මෙහි ඇතුළත් වේ.</p>
+    <p class="notice">Sensitive details in screenshots are blurred while keeping the system interface visible for training.</p>
+    <div class="toc">
+      <a href="#dashboard">1. Dashboard</a>
+      <a href="#products">2. Products</a>
+      <a href="#orders">3. Orders</a>
+      <a href="#leads">4. Leads</a>
+      <a href="#prices">5. Selling Prices</a>
+      <a href="#team">6. Team</a>
+      <a href="#reports">7. Reports</a>
+      <a href="#commission">8. Commissions</a>
+      <a href="#settings">9. Settings</a>
+    </div>
     
   </section>
+
+  <section class="chapter" id="dashboard">
+    <div class="chapter-head"><span class="num">1</span><h2>Dashboard Overview / ඩෑෂ්බෝඩ්</h2></div>
+    <div class="grid-2">
+      <div>
+        <p>The dashboard gives a quick view of sales, order count, shipped orders, pending orders and overall performance.</p>
+        <p class="si">Dashboard එකෙන් sales, order count, shipped orders, pending orders සහ overall performance ඉක්මනින් බලන්න පුළුවන්.</p>
+        <div class="tip">Tip: Check this every day before starting order and lead work.</div>
+      </div>
+      <div></div>
+    </div>
+  </section>
+
+  <section class="chapter" id="products">
+    <div class="chapter-head"><span class="num">2</span><h2>Products / නිෂ්පාදන</h2></div>
+    <div class="grid-2">
+      <div>
+        <p>Use the product section to view available products, SKU, category, weight, dropship price, retail price, warranty and stock availability.</p>
+        <p class="si">Products section එකෙන් available products, SKU, category, weight, dropship price, retail price, warranty සහ stock availability බලන්න.</p>
+        <table>
+          <tr><th>Field</th><th>Meaning</th></tr>
+          <tr><td>SKU</td><td>Unique product code</td></tr>
+          <tr><td>Dropship Price</td><td>Cost price for dropshipper</td></tr>
+          <tr><td>Retail Price</td><td>Suggested market price</td></tr>
+          <tr><td>Stock</td><td>Available quantity</td></tr>
+        </table>
+      </div>
+      <div></div>
+    </div>
+  </section>
+
+  <section class="chapter" id="orders">
+    <div class="chapter-head"><span class="num">3</span><h2>Orders Management / ඇණවුම් කළමනාකරණය</h2></div>
+    <p>Create customer orders, edit pending orders before shipment, and search order details when needed.</p>
+    <p class="si">Customer orders create කරන්න, shipment කලින් pending orders edit කරන්න, සහ අවශ්‍ය විට order details search කරන්න.</p>
+    <div class="flow"><span>Lead</span><span>Create Order</span><span>Pending</span><span>Shipped</span><span>Delivered</span><span>Commission</span></div>
+    <div class="grid-2">
+      <div></div>
+      <div></div>
+    </div>
+  </section>
+
+  <section class="chapter" id="leads">
+    <div class="chapter-head"><span class="num">4</span><h2>Leads Management / ලීඩ් කළමනාකරණය</h2></div>
+    <p>Import leads from Meta Ads, TikTok Ads or WhatsApp campaigns using the CSV template. Then manage each lead and convert confirmed leads into orders.</p>
+    <p class="si">Meta Ads, TikTok Ads හෝ WhatsApp campaign leads CSV template එකෙන් import කරන්න. Confirmed leads orders බවට convert කරන්න.</p>
+    <div class="flow"><span>Add Order</span><span>No Answer</span><span>Reject</span><span>Cancel</span><span>Delete</span></div>
+    <div class="grid-2">
+      <div></div>
+      <div></div>
+    </div>
+  </section>
+
+  <section class="chapter" id="prices">
+    <div class="chapter-head"><span class="num">5</span><h2>Selling Prices / විකුණුම් මිල</h2></div>
+    <div class="grid-2">
+      <div>
+        <p>Dropshippers can set their own selling price. This price appears automatically when creating an order.</p>
+        <p class="si">Dropshippers ලාට තමන්ගේ selling price set කරන්න පුළුවන්. Order create කරන විට මේ price එක automatically පෙන්වයි.</p>
+        <table>
+          <tr><th>Price Type</th><th>Explanation</th></tr>
+          <tr><td>Retail Price</td><td>Market price suggested by admin</td></tr>
+          <tr><td>Dropship Price</td><td>Cost price deducted from selling price</td></tr>
+          <tr><td>Selling Price</td><td>Your customer selling price</td></tr>
+        </table>
+        <div class="tip">Profit Example: Selling Price - Dropship Price = Dropshipper Profit</div>
+      </div>
+      <div></div>
+    </div>
+  </section>
+
+  <section class="chapter" id="team">
+    <div class="chapter-head"><span class="num">6</span><h2>Team Management / කණ්ඩායම් කළමනාකරණය</h2></div>
+    <div class="grid-2">
+      <div>
+        <p>Add users for your sales team or staff. This is useful when a dropshipper has separate people handling calls, leads and orders.</p>
+        <p class="si">Sales team හෝ staff සඳහා users add කරන්න. Calls, leads සහ orders handle කරන වෙනම team එකක් තිබේ නම් මෙය වැදගත් වේ.</p>
+        <div class="tip">Use separate staff accounts to monitor work clearly.</div>
+      </div>
+      <div></div>
+    </div>
+  </section>
+
+  <section class="chapter" id="reports">
+    <div class="chapter-head"><span class="num">7</span><h2>Reports & Shipped Summary / වාර්තා</h2></div>
+    <div class="grid-2">
+      <div>
+        <p>View shipped orders, courier details, payment method, order source and delivery feedback. Reports can help track performance and settlements.</p>
+        <p class="si">Shipped orders, courier details, payment method, order source සහ delivery feedback බලන්න. Reports මඟින් performance සහ settlements track කරන්න පුළුවන්.</p>
+        <div class="tip">Use filters by date, user, courier and status to find records faster.</div>
+      </div>
+      <div></div>
+    </div>
+  </section>
+
+  <section class="chapter" id="commission">
+    <div class="chapter-head"><span class="num">8</span><h2>Commissions & Settlement / කොමිෂන් ගෙවීම්</h2></div>
+    <div class="grid-2">
+      <div>
+        <p>Dropshippers can view commission amount, settled amount, due amount and weekly settlement updates.</p>
+        <p class="si">Dropshippers ලාට commission amount, settled amount, due amount සහ weekly settlement updates බලන්න පුළුවන්.</p>
+        <table>
+          <tr><th>Term</th><th>Meaning</th></tr>
+          <tr><td>Commission</td><td>Profit earned from delivered orders</td></tr>
+          <tr><td>Settled Amount</td><td>Already paid amount</td></tr>
+          <tr><td>Due Amount</td><td>Pending amount to be paid</td></tr>
+        </table>
+      </div>
+      <div></div>
+    </div>
+  </section>
+
+  <section class="chapter" id="settings">
+    <div class="chapter-head"><span class="num">9</span><h2>Dropship Settings / සැකසුම්</h2></div>
+    <div class="grid-2">
+      <div>
+        <p>Update bank details for commission settlement and change password when needed.</p>
+        <p class="si">Commission settlement සඳහා bank details update කරන්න සහ අවශ්‍ය නම් password change කරන්න.</p>
+        <div class="tip">Security Tip: Do not share your password or account login with others.</div>
+      </div>
+      <div></div>
+    </div>
+  </section>
 </main>
-<footer>
+
+<footer class="footer">
   <strong>DROPCO DROPSHIPPING</strong><br>
   Hotline / WhatsApp: 0777544646 | Website: www.dropco.lk
 </footer>
